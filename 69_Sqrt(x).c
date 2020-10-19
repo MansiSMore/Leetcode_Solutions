@@ -16,6 +16,11 @@ Output: 2
 Explanation: The square root of 8 is 2.82842..., and since 
              the decimal part is truncated, 2 is returned.
 */
+/*
+Here, I used the concept of power function in following way.
+4 ^ 2 = 16
+16 ^ (1/2) = 4
+*/
 #include <math.h>
 int mySqrt(int x)
 {
