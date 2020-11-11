@@ -15,8 +15,8 @@ Constraints:
 n == height.length
 0 <= n <= 3 * 104
 0 <= height[i] <= 105
-
 */
+
 int trap(int *arr, int n)
 {
     int i = 0, j = n - 1, lm = 0, rm = 0, cnt = 0;
