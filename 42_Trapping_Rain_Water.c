@@ -16,7 +16,7 @@ n == height.length
 0 <= n <= 3 * 104
 0 <= height[i] <= 105
 */
-
+//You can also use the concept of left array and right array, in which we can add left side maximum and right side maximum.
 int trap(int *arr, int n)
 {
     int i = 0, j = n - 1, lm = 0, rm = 0, cnt = 0;
