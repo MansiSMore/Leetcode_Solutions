@@ -28,7 +28,7 @@ int trap(int *arr, int n)
                    lm = arr[i];
             else
                 cnt += lm - arr[i];
-                i++;
+            i++;
         }
         else
         {
@@ -36,7 +36,7 @@ int trap(int *arr, int n)
                 rm = arr[j];
             else
                 cnt += rm - arr[j];
-                j--;
+            j--;
         }
     }
     return cnt;
