@@ -26,6 +26,25 @@ t.length == s.length + 1
 s and t consist of lower-case English letters.
 
 */
+/*
+This is essentially the same question as "Single Number". 
+This works because applying the XOR operation on a number with itself returns zero. 
+Because there are two lists with duplicate numbers, there are pairs of every character except for one (the one we are trying to find). 
+So if we XOR all values with themselves, the result will be 0 as they will all 'zero' each other out, except for the number that does not have a pair. 
+This is what we will return.
+*/
+/*
+int result = 0;
+    for(int i = 0; i < s.length(); i++){
+        result = result ^ (int)s.charAt(i);
+    }
+    
+    for(int i = 0; i < t.length(); i++){
+        result = result ^ (int)t.charAt(i);
+    }
+ 
+    return (char)result;
+*/
 class Solution {
     public char findTheDifference(String s, String t) 
     {
