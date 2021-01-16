@@ -54,7 +54,7 @@ public:
             no = countOnes(i);
             if(no == 2 || no == 3 || no == 5 || no == 7 || no == 11 || no == 13 || no == 17 || no == 19)
             {  
-                printf("%d %d\n", i, no);
+                //printf("%d %d\n", i, no);
                 cnt++;
             }
                 
