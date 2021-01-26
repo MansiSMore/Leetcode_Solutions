@@ -23,7 +23,7 @@ Constraints:
 The number of nodes in the tree is in the range [0, 104].
 -100 <= Node.val <= 100
 
-*
+*/
 int maxDepth(struct TreeNode* root)
 {
     int m1 = 0, m2 = 0;
