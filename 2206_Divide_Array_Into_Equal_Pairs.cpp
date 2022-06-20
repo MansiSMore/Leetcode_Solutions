@@ -23,6 +23,10 @@ nums.length == 2 * n
 1 <= n <= 500
 1 <= nums[i] <= 500
 */
+
+/*
+Here, the trick is Elements can be divide into pairs if and only if their count is even, so check for if element's count is even or not.
+*/
 class Solution {
 public:
     bool divideArray(vector<int>& nums) 
