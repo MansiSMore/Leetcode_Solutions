@@ -25,32 +25,36 @@ nums.length == 2 * n
 */
 class Solution {
 public:
-    int mostFrequent(vector<int>& nums, int key) 
+    bool divideArray(vector<int>& nums) 
     {
         unordered_map<int, int> uobj;
         
-        for(int i = 0; i < nums.size() - 1; i++)
+        for(int i = 0; i < nums.size(); i++)
         {
-            if(nums[i] == key)
+            if(uobj[nums[i]] == 0)
+                uobj[nums[i]] = 1;
+            else
+                uobj[nums[i]] += 1;
+        }
+        
+        bool flag = false;
+        for(auto x : uobj)
+        {
+            if(x.second % 2 == 0)
             {
-                if(uobj[nums[i + 1]] == 0)
-                    uobj[nums[i + 1]] = 1;
-                else
-                    uobj[nums[i + 1]] += 1;
+                flag = true;
+            }
+            else
+            {
+                //cout << "hi\n";
+                flag = false;
+                break;
             }
         }
         
-        int max_occurrence = 0, target = 0;
-        for(auto it : uobj)
-        {
-            if(it.second > max_occurrence)
-            {
-                max_occurrence = it.second;
-                target = it.first;
-            }
-                
-            //cout << it.first << " " << it.second << endl;
-        }
-        return target;   
+        if(flag == false)
+            return false;
+        else
+            return true;
     }
 };
