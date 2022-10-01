@@ -38,8 +38,10 @@ public:
 
     int countWays(string s, int i, vector<int>& dp)
     {
+        //This is for the testcase like 106, here only possibilities are 10, 6, because we are not cosidering leading zeros.
         if(s[i] == '0')
             return 0;
+        //
         if(i >= s.size())
             return 1;
         if(i == s.size() - 1)
