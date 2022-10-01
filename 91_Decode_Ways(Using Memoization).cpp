@@ -1,3 +1,5 @@
+//When I tried to solve this question by recursion, I got Time Limit Exceeded Error, so I came up with dp approaches.
+//And this is MEMOIZATION i.e. TOP DOWN APPROACH.
 /*
 A message containing letters from A-Z can be encoded into numbers using the following mapping:
 'A' -> "1"
