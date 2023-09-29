@@ -77,3 +77,39 @@ public:
         return num;
     }
 };
+
+//Best Approach
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) 
+    {
+        int cnt_ones = 0, k = 0;
+        
+        //checking for every bit.
+        /*
+        eg [1,1,1,2,2,2,3]
+        binary representation        
+        {001,001,001, 010, 010, 010, 011}
+        for every single bit, keep track of ones and zeros.
+        for first bit, count(1) = 4, count(0) = 3, here 4 % 3 == 1 and 3 % 3 == 0, we found that in our no, first bit is 1. so on
+        */
+        int ans = 0;
+        for(int i = 0; i < 32; i++)
+        {
+            cnt_ones = 0;
+            for(int j = 0; j < nums.size(); j++)
+            {
+                if(nums[j] & (1 << k))
+                {
+                    cnt_ones++;
+                }
+            }
+            if(cnt_ones % 3)
+            {
+                ans = ans | (1 << k);
+            }
+            k++;
+        }
+        return ans;
+    }
+};
