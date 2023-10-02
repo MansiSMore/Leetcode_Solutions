@@ -35,3 +35,29 @@ public:
         return res;
     }
 };
+
+
+//method 2 : Two pointer approach 
+
+class Solution {
+public:
+    string reverseWords(string s) 
+    {
+        //two pointer approach 
+        int i = 0;
+        for(int j = 0; j < s.length(); j++)
+        {
+            //traversec j till you found ' '
+            if(s[j] == ' ')
+            {
+                //reverse string from s[i] to s[j]
+                reverse(s.begin() + i, s.begin() + j);
+                //now update i to non white space character.
+                i = j + 1;
+            }
+        }
+        //for last string.
+        reverse(s.begin() + i, s.end());
+        return s;
+    }
+};
