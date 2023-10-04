@@ -28,6 +28,8 @@ Constraints:
 0 <= key, value <= 106
 At most 104 calls will be made to put, get, and remove.
 */
+
+//method 1
 #include <vector>
 class MyHashMap {
     private:
@@ -89,6 +91,44 @@ public:
             }
             
         }
+    }
+   
+};
+
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * MyHashMap* obj = new MyHashMap();
+ * obj->put(key,value);
+ * int param_2 = obj->get(key);
+ * obj->remove(key);
+ */
+
+
+
+///method 2
+#include <vector>
+class MyHashMap {
+public:
+    vector<int> vobj;
+    MyHashMap() : vobj(1000001, -1)
+    {
+    }
+    
+    void put(int key, int value) 
+    {
+        vobj[key] = value;
+    }
+    
+    int get(int key) 
+    {
+        if(vobj[key] != -1)
+            return vobj[key];
+        return -1;
+    }
+    
+    void remove(int key) 
+    {
+        vobj[key] = -1;
     }
    
 };
