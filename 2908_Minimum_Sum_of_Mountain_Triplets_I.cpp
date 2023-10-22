@@ -30,6 +30,7 @@ Constraints:
 3 <= nums.length <= 50
 1 <= nums[i] <= 50
 */
+//Brute force approach
 class Solution {
 public:
     int minimumSum(vector<int>& nums) 
@@ -55,4 +56,40 @@ public:
         return sum;
     }
 };
+
+//Left min and right min approach.
+class Solution {
+public:
+    int minimumSum(vector<int>& nums) 
+    {
+        int sum = INT_MAX, n = nums.size();
+        
+        for(int j = 1; j < n - 1; j++)
+        {
+            //now first find out min value from left of j and then right min of j
+            int left_min = INT_MAX, right_min = INT_MAX;
+            
+            for(int i = 0; i < j; i++)
+            {
+                left_min = min(left_min, nums[i]);
+            }
+            
+            for(int k = j + 1; k < n; k++)
+            {
+                right_min = min(right_min, nums[k]);
+            }
+            
+            if(left_min < nums[j] && right_min < nums[j])
+            {
+                sum = min(sum, left_min + nums[j] + right_min);
+            }
+        }
+        
+       
+        if(sum == INT_MAX)
+            sum = -1;
+        return sum;
+    }
+};
+
 
