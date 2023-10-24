@@ -56,3 +56,60 @@ public:
         return true;
     }
 };
+
+
+//method 2 : Using Two Pointer's Approach : 
+/*To check if a singly linked list is a palindrome, use two pointers to find the middle of the linked list,
+reverses the second half in place, and then compares the first half with the reversed second half to determine if the linked list is a palindrome.
+This method doesn't use extra space and has a time complexity of O(n)
+*/
+
+class Solution {
+public:
+    ListNode* reverse(ListNode* head)
+    {
+        if(head == NULL || head->next == NULL)
+            return head;
+        ListNode* temp = reverse(head->next);
+        head->next->next = head;
+        head->next = NULL;
+        return temp;
+        
+    }
+    bool isPalindrome(ListNode* head) 
+    {
+        if (head == NULL || head->next == NULL)
+        {
+            return true;
+        }
+        
+        ListNode* slow = head, *fast = head;
+        
+        while(fast != NULL && fast->next != NULL)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        ListNode* temp2 = reverse(slow);
+        
+        ListNode* temp1 = head;
+        
+        bool flag = true;
+        while(temp2 != NULL)
+        {
+            if(temp1->val != temp2->val)
+            {
+                flag = false;
+                break;
+            }
+            temp1 = temp1->next;
+            temp2 = temp2->next;
+        }
+        
+        if(flag == true)
+            return true;
+        else
+            return false;
+        
+    }
+};
