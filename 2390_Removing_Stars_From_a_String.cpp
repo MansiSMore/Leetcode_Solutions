@@ -61,3 +61,27 @@ public:
         return res;
     }
 };
+
+
+//Method 2
+class Solution {
+public:
+    string removeStars(string s) 
+    {
+        //Here, I am using string as a stack using string functions push_back and pop_back.
+        string res = "";
+        
+        for(int i = 0; i < s.size(); i++)
+        {
+            if(s[i] != '*')
+            {
+                res.push_back(s[i]);
+            }
+            else
+            {
+                res.pop_back();
+            }
+        }
+        return res;
+    }
+};
